@@ -56,7 +56,7 @@ void materialLoader::setMetalRoughTexture(Ogre::HlmsPbsDatablock* block, int glt
 {
 	if(!isTextureIndexValid(gltfTextureID)) return;
 	//Ogre cannot use combined metal rough textures. Metal is in the R channel, and rough in the G channel. It seems that the images are loaded as BGR by the libarry
-	//R channel is channle 2 (from 0), G channel is 1.
+	//R channel is channel 2 (from 0), G channel is 1.
 
 	auto metalTexure = textureImporterRef.generateGreyScaleFromChannel(gltfTextureID, 2);
 	auto roughTexure = textureImporterRef.generateGreyScaleFromChannel(gltfTextureID, 1);
@@ -69,7 +69,7 @@ void materialLoader::setMetalRoughTexture(Ogre::HlmsPbsDatablock* block, int glt
 
 	if(roughTexure)
 	{
-		//OgreLog("roughness geyscale texture extracted by textureImporter : " + roughTexure->getName());
+		//OgreLog("roughness greyscale texture extracted by textureImporter : " + roughTexure->getName());
 		block->setTexture(Ogre::PBSM_ROUGHNESS, 0, roughTexure);
 	}
 }
@@ -92,7 +92,7 @@ void materialLoader::setOcclusionTexture(Ogre::HlmsPbsDatablock* block, int valu
 	if(texture)
 	{
 		//OgreLog("occlusion texture from textureImporter : " + texture->getName());
-		//OgreLog("Warning: Ogre doesn't supoort occlusion map in it's HLMS PBS implementation!");
+		//OgreLog("Warning: Ogre doesn't support occlusion map in it's HLMS PBS implementation!");
 		//block->setTexture(Ogre::PbsTextureTypes::PBSM_, 0, texture);
 	}
 }
@@ -155,7 +155,7 @@ Ogre::HlmsDatablock* materialLoader::getDatablock(size_t index) const
 																			  Ogre::HlmsParamVec {}));
 	datablock->setWorkflow(Ogre::HlmsPbsDatablock::Workflows::MetallicWorkflow);
 
-	//TODO refactor these almost exact peices of code
+	//TODO refactor these almost exact pieces of code
 	//OgreLog("values");
 	for(const auto& content : material.values)
 	{

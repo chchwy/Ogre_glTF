@@ -133,11 +133,11 @@ Ogre::MeshPtr modelConverter::getOgreMesh()
 			//OgreLog("Vertex element count blendIndex : " + std::to_string(blendIndices.perVertex));
 			//OgreLog("Vertex element count blendWeight: " + std::to_string(blendWeights.perVertex));
 
-			//Allocate 2 small arrays to store the bone idexes. (They should be of lenght "4")
+			//Allocate 2 small arrays to store the bone indexes. (They should be of lenght "4")
 			std::vector<Ogre::ushort> vertexBoneIndex(blendIndices.perVertex);
 			std::vector<Ogre::Real> vertexBlend(blendWeights.perVertex);
 
-			//Add the attahcments for each bones
+			//Add the attachments for each bones
 			for(Ogre::uint32 vertexIndex = 0; vertexIndex < blendIndices.vertexCount; ++vertexIndex)
 			{
 				//Fetch the for bone indexes from the buffer
